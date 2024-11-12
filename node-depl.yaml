@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-node
+  labels:
+    app: sahil-sandbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sahil-sandbox
+  template:
+    metadata:
+      labels:
+        app: sahil-sandbox
+    spec: 
+      containers:
+      - name: sahil-sandbox
+        # image: quay.io/sahil_israni_falkonry/sahil-sandbox:latest
+        image: quay.io/falkonry/ops-demo:1.0
+        ports:
+        - containerPort: 3000
